@@ -1,9 +1,11 @@
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using OpenTelemetry.Traces;
+using OpenTelemetry.Traces.Configurations.OpenTelemetry;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.ConfigureOpenTelemetry();
 
 builder.Host.UseSerilog((context, configuration) =>
 {
@@ -12,6 +14,7 @@ builder.Host.UseSerilog((context, configuration) =>
 });
 
 var services = builder.Services;
+
 services.AddSingleton<Dice>();
 
 var application = builder.Build();

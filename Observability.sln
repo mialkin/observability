@@ -4,11 +4,26 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{CB
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		readme.md = readme.md
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{597633D5-657A-4ADF-A6B9-9AD4C9C19101}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenTelemetry.Traces", "src\OpenTelemetry.Traces\OpenTelemetry.Traces.csproj", "{9F9B0182-B662-4797-A8F6-56252C81CE82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9F9B0182-B662-4797-A8F6-56252C81CE82} = {597633D5-657A-4ADF-A6B9-9AD4C9C19101}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F9B0182-B662-4797-A8F6-56252C81CE82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F9B0182-B662-4797-A8F6-56252C81CE82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F9B0182-B662-4797-A8F6-56252C81CE82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F9B0182-B662-4797-A8F6-56252C81CE82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

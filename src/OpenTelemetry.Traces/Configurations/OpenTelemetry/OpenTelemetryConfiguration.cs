@@ -26,7 +26,12 @@ public static class OpenTelemetryConfiguration
         builder.Logging.AddOpenTelemetry(options => options
             .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService(
                 serviceName: settings.ServiceName,
-                serviceVersion: settings.ServiceName))
+                serviceVersion: settings.ServiceVersion))
             .AddConsoleExporter());
+
+        builder.Services.AddSingleton<Instrumentation>(_ =>
+            new Instrumentation(
+                activitySourceName: settings.ServiceName,
+                activitySourceVersion: settings.ServiceVersion));
     }
 }

@@ -18,7 +18,8 @@ public static class OpenTelemetryConfiguration
             .WithTracing(tracing => tracing
                 .AddSource(settings.ServiceName)
                 .AddAspNetCoreInstrumentation()
-                .AddConsoleExporter())
+                .AddConsoleExporter()
+                .AddOtlpExporter(x => x.Endpoint = new Uri(settings.JaegerUrl)))
             .WithMetrics(metrics => metrics
                 .AddMeter(settings.ServiceName)
                 .AddConsoleExporter());

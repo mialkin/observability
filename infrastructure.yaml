@@ -9,3 +9,10 @@ services:
       - 4318:4318
       - 5778:5778
       - 9411:9411
+
+# Port	Purpose	Explanation
+# 16686	Jaeger UI	This is the web UI where you can view your traces. Accessible at http://localhost:16686/.
+# 4317	OTLP/gRPC	This is the OTLP over gRPC port. Modern OpenTelemetry SDKs (including ASP.NET) can send traces and metrics directly here using the OTLP protocol (efficient, modern way).
+# 4318	OTLP/HTTP	This is the OTLP over HTTP port. Same as 4317, but uses HTTP instead of gRPC. Useful if gRPC is not supported or harder to set up.
+# 5778	Jaeger agent config	This is for sampling configuration (old Jaeger agent config endpoint). Mostly used internally; clients could query this to know sampling strategies. You usually don't need to worry about this.
+# 9411	Zipkin compatibility	This port accepts Zipkin traces. Some applications that only know how to export traces in the Zipkin format can send them here. Jaeger supports Zipkin API for backward compatibility.

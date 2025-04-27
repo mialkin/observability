@@ -13,6 +13,8 @@ This solution showcases the observability setup within the context of .NET.
 docker compose --file infrastructure.yaml up --detach
 ```
 
+Jaeger UI: <http://localhost:16686/search>.
+
 ## Run application
 
 ```bash

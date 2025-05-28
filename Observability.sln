@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logging", "Logging", "{F75C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Api", "src\Serilog.Api\Serilog.Api.csproj", "{7DDF103B-7585-46F4-A5AA-0F9142343F1A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Enrich.FromLogContext.Api", "src\Serilog.Enrich.FromLogContext.Api\Serilog.Enrich.FromLogContext.Api.csproj", "{DA2E04CF-FEC6-4631-AE32-82CAD4AF1D41}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,7 @@ Global
 		{9F9B0182-B662-4797-A8F6-56252C81CE82} = {85C8DCCC-EEE6-4585-AFBD-6125D1E94F14}
 		{F75CBDFD-5140-4EA9-91FB-D8CD64E94CEF} = {597633D5-657A-4ADF-A6B9-9AD4C9C19101}
 		{7DDF103B-7585-46F4-A5AA-0F9142343F1A} = {F75CBDFD-5140-4EA9-91FB-D8CD64E94CEF}
+		{DA2E04CF-FEC6-4631-AE32-82CAD4AF1D41} = {F75CBDFD-5140-4EA9-91FB-D8CD64E94CEF}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{9F9B0182-B662-4797-A8F6-56252C81CE82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -39,5 +42,9 @@ Global
 		{7DDF103B-7585-46F4-A5AA-0F9142343F1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DDF103B-7585-46F4-A5AA-0F9142343F1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DDF103B-7585-46F4-A5AA-0F9142343F1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA2E04CF-FEC6-4631-AE32-82CAD4AF1D41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA2E04CF-FEC6-4631-AE32-82CAD4AF1D41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA2E04CF-FEC6-4631-AE32-82CAD4AF1D41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA2E04CF-FEC6-4631-AE32-82CAD4AF1D41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

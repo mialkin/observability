@@ -12,13 +12,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{597633D5-657
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenTelemetry.Traces", "src\OpenTelemetry.Traces\OpenTelemetry.Traces.csproj", "{9F9B0182-B662-4797-A8F6-56252C81CE82}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tracing", "Tracing", "{85C8DCCC-EEE6-4585-AFBD-6125D1E94F14}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{9F9B0182-B662-4797-A8F6-56252C81CE82} = {597633D5-657A-4ADF-A6B9-9AD4C9C19101}
+		{85C8DCCC-EEE6-4585-AFBD-6125D1E94F14} = {597633D5-657A-4ADF-A6B9-9AD4C9C19101}
+		{9F9B0182-B662-4797-A8F6-56252C81CE82} = {85C8DCCC-EEE6-4585-AFBD-6125D1E94F14}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{9F9B0182-B662-4797-A8F6-56252C81CE82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

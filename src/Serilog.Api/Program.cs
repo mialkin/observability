@@ -12,15 +12,11 @@ builder.Host.UseSerilog((context, configuration) =>
 
 var services = builder.Services;
 
-services.AddEndpointsApiExplorer();
-
 services.AddRouting(x => x.LowercaseUrls = true);
 
 var application = builder.Build();
 
 application.UseSerilogRequestLogging();
-
-application.UseRouting();
 
 application.MapGet(
     pattern: "/",

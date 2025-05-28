@@ -10,10 +10,6 @@ builder.Host.UseSerilog((context, configuration) =>
     // configuration.WriteTo.File("/Users/john.doe/Downloads/serilog-api.log");
 });
 
-var services = builder.Services;
-
-services.AddRouting(x => x.LowercaseUrls = true);
-
 var application = builder.Build();
 
 application.UseSerilogRequestLogging();

@@ -30,3 +30,6 @@ docker compose --file infrastructure.yaml down
 Prometheus UI: <http://localhost:5140/targets>.
 
 Grafana UI: <http://localhost:5150/datasources>. Use <http://host.docker.internal:5140> as Prometheus' datasource URL.
+
+Visit the link <http://localhost:5130/counter/increment?value=4> then search for `simple_meter_total` metrics inside
+Prometheus.

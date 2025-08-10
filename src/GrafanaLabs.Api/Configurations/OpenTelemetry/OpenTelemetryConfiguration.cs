@@ -1,3 +1,5 @@
+using GrafanaLabs.Api.Configurations.Meters;
+using OpenTelemetry.Metrics;
 using OpenTelemetry.Resources;
 
 namespace GrafanaLabs.Api.Configurations.OpenTelemetry;
@@ -13,7 +15,8 @@ public static class OpenTelemetryConfiguration
             .ConfigureResource(builder => builder
                 .AddService(settings.ServiceName, serviceVersion: settings.ServiceVersion))
             .WithMetrics(builder => builder
-                .AddMeter(settings.ServiceName));
+                .AddPrometheusExporter()
+                .AddMeter(OtelScopeName.Default));
         // .WithTracing(builder => builder
         //     .AddSource(settings.ServiceName)
         //     .AddAspNetCoreInstrumentation()

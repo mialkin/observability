@@ -6,7 +6,7 @@ public static class MetersConfiguration
 {
     public static void ConfigureMeters(this IServiceCollection services)
     {
-        services.AddSingleton<Meter>(_ => new Meter("default meter"));
+        services.AddSingleton<Meter>(_ => new Meter(OtelScopeName.Default));
         services.AddSingleton<SimpleMeter>();
     }
 }

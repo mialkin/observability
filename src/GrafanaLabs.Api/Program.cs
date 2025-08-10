@@ -19,6 +19,7 @@ services.ConfigureMeters();
 var application = builder.Build();
 
 application.UseSerilogRequestLogging();
+application.UseOpenTelemetryPrometheusScrapingEndpoint();
 
 application.MapGet("/", () => "GrafanaLabs.Api");
 

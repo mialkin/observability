@@ -1,3 +1,4 @@
+using GrafanaLabs.Api.Configurations.OpenTelemetry;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,7 @@ builder.Host.UseSerilog((context, configuration) =>
     configuration.WriteTo.Console();
 });
 
+builder.ConfigureOpenTelemetry();
 
 var application = builder.Build();
 

@@ -1,6 +1,6 @@
 using System.Diagnostics.Metrics;
 
-namespace GrafanaLabs.Api.Configurations.Meters;
+namespace GrafanaLabs.Api.Telemetry.Meters;
 
 public static class MetersConfiguration
 {

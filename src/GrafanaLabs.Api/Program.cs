@@ -1,5 +1,5 @@
-using GrafanaLabs.Api.Configurations.Meters;
-using GrafanaLabs.Api.Configurations.OpenTelemetry;
+using GrafanaLabs.Api.Telemetry;
+using GrafanaLabs.Api.Telemetry.Meters;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
 
@@ -11,7 +11,7 @@ builder.Host.UseSerilog((context, configuration) =>
     configuration.WriteTo.Console();
 });
 
-builder.ConfigureOpenTelemetry();
+builder.ConfigureTelemetry();
 
 var services = builder.Services;
 services.ConfigureMeters();

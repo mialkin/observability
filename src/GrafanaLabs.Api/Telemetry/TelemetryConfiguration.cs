@@ -1,14 +1,14 @@
-using GrafanaLabs.Api.Configurations.Meters;
+using GrafanaLabs.Api.Configurations;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Resources;
 
-namespace GrafanaLabs.Api.Configurations.OpenTelemetry;
+namespace GrafanaLabs.Api.Telemetry;
 
-public static class OpenTelemetryConfiguration
+public static class TelemetryConfiguration
 {
-    public static void ConfigureOpenTelemetry(this IHostApplicationBuilder applicationBuilder)
+    public static void ConfigureTelemetry(this IHostApplicationBuilder applicationBuilder)
     {
-        var settings = applicationBuilder.Configuration.GetSettings<OpenTelemetrySettings>();
+        var settings = applicationBuilder.Configuration.GetSettings<TelemetrySettings>();
 
         applicationBuilder.Services
             .AddOpenTelemetry()

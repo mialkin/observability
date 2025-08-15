@@ -27,16 +27,16 @@ docker compose --file infrastructure.yaml down
 
 ## UI
 
-Prometheus UI: <http://localhost:5140/targets>.
+Prometheus UI: <http://localhost:6300/targets>.
 
-Grafana UI: <http://localhost:5150/datasources>. Datasource URLs:
+Grafana UI: <http://localhost:6100/datasources>. Datasource URLs:
 
-- Prometheus: <http://host.docker.internal:5140>
-- Loki: <http://host.docker.internal:5160>
+- Prometheus: <http://host.docker.internal:6300>
+- Loki: <http://host.docker.internal:6200>
 
-Alloy UI: <http://localhost:5170/>.
+Alloy UI: <http://localhost:6500/>.
 
 ## Produce metrics
 
-Visit the link <http://localhost:5130/counter/increment?value=4> then search for `simple_meter_total` metrics inside
+Visit <http://localhost:5130/counter/increment?value=4>, then search for `simple_meter_total` metrics inside
 Prometheus.

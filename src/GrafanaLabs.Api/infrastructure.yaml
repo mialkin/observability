@@ -22,6 +22,19 @@ services:
       - "5160:3100"
     command: -config.file=/etc/loki/local-config.yaml
 
+  alloy:
+    image: grafana/alloy:v1.10.1
+    container_name: alloy
+    ports:
+      - "5170:12345"
+    volumes:
+      - ./config.alloy:/etc/alloy/config.alloy
+    command:
+      - run
+      - --server.http.listen-addr=0.0.0.0:12345
+      - --storage.path=/var/lib/alloy/data
+      - /etc/alloy/config.alloy
+
 #  promtail:
 #    image: grafana/promtail:latest
 #    volumes:

@@ -33,3 +33,5 @@ Grafana UI: <http://localhost:5150/datasources>. Use <http://host.docker.interna
 
 Visit the link <http://localhost:5130/counter/increment?value=4> then search for `simple_meter_total` metrics inside
 Prometheus.
+
+Alloy UI: <http://localhost:5170/>.

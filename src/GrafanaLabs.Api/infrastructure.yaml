@@ -22,9 +22,21 @@ services:
     ports:
       - "6300:9090"
 
+  tempo:
+    image: grafana/tempo:2.8.2
+    container_name: grafana-labs-tempo
+    command: [ "-config.file=/etc/tempo.yaml" ]
+    volumes:
+      - ./tempo.yaml:/etc/tempo.yaml
+    ports:
+      - "6400:3200"   # Tempo HTTP API / metrics
+      - "4317:4317"   # OTLP gRPC
+      - "4318:4318"   # OTLP HTTP
+      - "9411:9411"   # Zipkin
+
   alloy:
     image: grafana/alloy:v1.10.1
-    container_name: alloy
+    container_name: grafana-labs-alloy
     ports:
       - "6500:12345"
     volumes:

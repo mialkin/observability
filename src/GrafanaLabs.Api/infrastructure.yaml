@@ -41,7 +41,8 @@ services:
     ports:
       - "6500:12345"
     volumes:
-      - ./configs/alloy-config.alloy:/etc/alloy/config.alloy
+      - ./configs/config.alloy:/etc/alloy/config.alloy
+      - /Users/aleksei/logs/dotnet:/var/log/dotnet
     command:
       - run
       - --server.http.listen-addr=0.0.0.0:12345

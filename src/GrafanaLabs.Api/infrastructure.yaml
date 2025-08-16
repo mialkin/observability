@@ -10,6 +10,7 @@ services:
 
   loki:
     image: grafana/loki:3.5.3
+    container_name: grafana-labs-loki
     ports:
       - "6200:3100"
     command: -config.file=/etc/loki/local-config.yaml
@@ -18,7 +19,7 @@ services:
     image: prom/prometheus:v3.5.0
     container_name: grafana-labs-prometheus
     volumes:
-      - ./prometheus.yaml:/etc/prometheus/prometheus.yaml
+      - ./configs/prometheus.yaml:/etc/prometheus/prometheus.yaml
     ports:
       - "6300:9090"
 
@@ -27,7 +28,7 @@ services:
     container_name: grafana-labs-tempo
     command: [ "-config.file=/etc/tempo.yaml" ]
     volumes:
-      - ./tempo.yaml:/etc/tempo.yaml
+      - ./configs/tempo.yaml:/etc/tempo.yaml
     ports:
       - "6400:3200"   # Tempo HTTP API / metrics
       - "4317:4317"   # OTLP gRPC
@@ -40,16 +41,9 @@ services:
     ports:
       - "6500:12345"
     volumes:
-      - ./config.alloy:/etc/alloy/config.alloy
+      - ./configs/alloy-config.alloy:/etc/alloy/config.alloy
     command:
       - run
       - --server.http.listen-addr=0.0.0.0:12345
       - --storage.path=/var/lib/alloy/data
       - /etc/alloy/config.alloy
-
-#  promtail:
-#    image: grafana/promtail:latest
-#    volumes:
-#      - /var/log:/var/log
-#    command: -config.file=/etc/promtail/config.yml
-

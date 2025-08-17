@@ -15,22 +15,12 @@ public static class TelemetryConfiguration
             .ConfigureResource(builder => builder
                 .AddService(settings.ServiceName, serviceVersion: settings.ServiceVersion))
             .WithMetrics(builder => builder
+                .AddAspNetCoreInstrumentation()
+                .AddHttpClientInstrumentation()
+                .AddRuntimeInstrumentation()
+                .AddMeter(OtelScopeName.Default)
                 .AddPrometheusExporter()
-                .AddMeter(OtelScopeName.Default));
-        // .WithTracing(builder => builder
-        //     .AddSource(settings.ServiceName)
-        //     .AddAspNetCoreInstrumentation()
-        //     .AddOtlpExporter(x => x.Endpoint = new Uri(settings.JaegerUrl)));
-
-        // applicationBuilder.Logging
-        //     .AddOpenTelemetry(options =>
-        //     {
-        //         var builder = ResourceBuilder
-        //             .CreateDefault()
-        //             .AddService(settings.ServiceName, serviceVersion: settings.ServiceVersion);
-        //
-        //         options.SetResourceBuilder(builder);
-        //     });
+            );
 
         applicationBuilder.Services
             .AddSingleton<Instrumentation>(_ =>

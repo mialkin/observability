@@ -2,7 +2,6 @@
 
     <ItemGroup>
         <PackageReference Include="Ardalis.GuardClauses"/>
-        <PackageReference Include="OpenTelemetry.Exporter.Console"/>
         <PackageReference Include="OpenTelemetry.Exporter.OpenTelemetryProtocol"/>
         <PackageReference Include="OpenTelemetry.Exporter.Prometheus.AspNetCore"/>
         <PackageReference Include="OpenTelemetry.Extensions.Hosting"/>
@@ -10,6 +9,7 @@
         <PackageReference Include="OpenTelemetry.Instrumentation.Http"/>
         <PackageReference Include="OpenTelemetry.Instrumentation.Runtime"/>
         <PackageReference Include="Serilog.AspNetCore"/>
+        <PackageReference Include="Serilog.Sinks.OpenTelemetry"/>
     </ItemGroup>
 
 </Project>

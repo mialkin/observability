@@ -31,5 +31,4 @@ otelcol.exporter.otlp "tempo" {
           insecure_skip_verify = true
         }
     }
-
 }

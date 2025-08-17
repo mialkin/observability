@@ -11,7 +11,7 @@ builder.Host.UseSerilog((context, configuration) =>
     configuration.ReadFrom.Configuration(context.Configuration);
     configuration.WriteTo.Console();
     configuration.WriteTo.OpenTelemetry(
-        endpoint: "http://localhost:4317",
+        endpoint: "http://localhost:6510",
         protocol: OtlpProtocol.Grpc,
         resourceAttributes: new Dictionary<string, object>
         {

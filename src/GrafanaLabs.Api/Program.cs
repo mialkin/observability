@@ -12,7 +12,11 @@ builder.Host.UseSerilog((context, configuration) =>
     configuration.WriteTo.Console();
     configuration.WriteTo.OpenTelemetry(
         endpoint: "http://localhost:4317",
-        protocol: OtlpProtocol.Grpc);
+        protocol: OtlpProtocol.Grpc,
+        resourceAttributes: new Dictionary<string, object>
+        {
+            ["service.name"] = "grafana-labs-api"
+        });
 });
 
 builder.ConfigureTelemetry();

@@ -48,7 +48,7 @@ services:
     image: prom/prometheus:v3.5.0
     container_name: grafana-labs-prometheus
     volumes:
-      - ./configs/prometheus.yaml:/etc/prometheus/prometheus.yaml
+      - ./configs/prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
       - "6300:9090"
 

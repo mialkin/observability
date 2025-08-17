@@ -1,6 +1,6 @@
-namespace GrafanaLabs.Api.Configurations.OpenTelemetry;
+namespace GrafanaLabs.Api.Telemetry;
 
-public class OpenTelemetrySettings
+public class TelemetrySettings
 {
     public required string ServiceName { get; init; }
     public required string ServiceVersion { get; init; }

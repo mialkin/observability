@@ -1,0 +1,25 @@
+// https://grafana.com/docs/alloy/latest/troubleshoot/debug/
+livedebugging {
+  enabled = true
+}
+
+otelcol.receiver.otlp "default" {
+  grpc {}
+
+  output {
+    logs = [otelcol.exporter.loki.default.input]
+  }
+}
+
+// https://grafana.com/docs/alloy/latest/reference/components/otelcol/otelcol.exporter.loki/
+otelcol.exporter.loki "default" {
+  forward_to = [loki.write.local.receiver]
+}
+
+loki.write "local" {
+  endpoint {
+    url = "http://loki:3100/loki/api/v1/push"
+  }
+}
+
+

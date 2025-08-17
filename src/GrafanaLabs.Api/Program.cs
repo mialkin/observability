@@ -1,7 +1,8 @@
-using GrafanaLabs.Api.Configurations.Meters;
-using GrafanaLabs.Api.Configurations.OpenTelemetry;
+using GrafanaLabs.Api.Telemetry;
+using GrafanaLabs.Api.Telemetry.Meters;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
+using Serilog.Sinks.OpenTelemetry;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,9 +10,16 @@ builder.Host.UseSerilog((context, configuration) =>
 {
     configuration.ReadFrom.Configuration(context.Configuration);
     configuration.WriteTo.Console();
+    configuration.WriteTo.OpenTelemetry(
+        endpoint: "http://localhost:4317",
+        protocol: OtlpProtocol.Grpc,
+        resourceAttributes: new Dictionary<string, object>
+        {
+            ["service.name"] = "grafana-labs-api"
+        });
 });
 
-builder.ConfigureOpenTelemetry();
+builder.ConfigureTelemetry();
 
 var services = builder.Services;
 services.ConfigureMeters();

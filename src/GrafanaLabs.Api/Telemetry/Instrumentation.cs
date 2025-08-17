@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace GrafanaLabs.Api.Configurations.OpenTelemetry;
+namespace GrafanaLabs.Api.Telemetry;
 
 public class Instrumentation(string activitySourceName, string activitySourceVersion) : IDisposable
 {

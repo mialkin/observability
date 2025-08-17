@@ -25,11 +25,20 @@ Shut down infrastructure:
 docker compose --file infrastructure.yaml down
 ```
 
-## Prometheus
+## UI
 
-Prometheus UI: <http://localhost:5140/targets>.
+Prometheus UI: <http://localhost:6300/targets>.
 
-Grafana UI: <http://localhost:5150/datasources>. Use <http://host.docker.internal:5140> as Prometheus' datasource URL.
+Grafana UI: <http://localhost:6100/datasources>.
 
-Visit the link <http://localhost:5130/counter/increment?value=4> then search for `simple_meter_total` metrics inside
+Alloy UI: <http://localhost:6500/>.
+
+## Produce metrics
+
+Visit <http://localhost:5130/counter/increment?value=4>, then search for `simple_meter_total` metrics inside
 Prometheus.
+
+Datasource URLs:
+
+- Prometheus: <http://host.docker.internal:6300>
+- Loki: <http://host.docker.internal:6200>

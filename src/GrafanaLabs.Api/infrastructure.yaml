@@ -69,8 +69,6 @@ services:
       - ./configs/tempo.yaml:/etc/tempo.yaml
     ports:
       - "6400:3200"
-      - "4317:4317" # OTLP gRPC
-      - "4318:4318" # OTLP HTTP
 
   alloy:
     image: grafana/alloy:v1.10.1
@@ -78,7 +76,6 @@ services:
     ports:
       - "6500:12345"
       - "6510:4317" # OTLP gRPC
-      - "6520:4318" # OTLP HTTP
     volumes:
       - ./configs/config.alloy:/etc/alloy/config.alloy
     command:

@@ -1,19 +1,21 @@
 using GrafanaLabs.Api.Telemetry;
 using GrafanaLabs.Api.Telemetry.Meters;
 using Microsoft.AspNetCore.Mvc;
-using Serilog;
-
-// using Serilog.Formatting.Json;
+using OpenTelemetry.Exporter;
+using OpenTelemetry.Logs;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Host.UseSerilog((context, configuration) =>
+builder.Logging.AddOpenTelemetry(logging =>
 {
-    configuration.ReadFrom.Configuration(context.Configuration);
-    configuration.WriteTo.Console();
-    // configuration.WriteTo.File(
-    //     formatter: new JsonFormatter(),
-    //     path: "/Users/aleksei/logs/dotnet/grafana-labs-api.log");
+    // The rest of your setup code goes here
+    logging.AddOtlpExporter(x =>
+        {
+            x.Endpoint = new Uri("http://localhost:4317");
+            x.Protocol = OtlpExportProtocol.Grpc;
+        })
+        // .AddConsoleExporter()
+        ;
 });
 
 builder.ConfigureTelemetry();
@@ -23,7 +25,7 @@ services.ConfigureMeters();
 
 var application = builder.Build();
 
-application.UseSerilogRequestLogging();
+
 application.UseOpenTelemetryPrometheusScrapingEndpoint();
 
 application.MapGet("/", () => "GrafanaLabs.Api");

@@ -1,6 +1,9 @@
 using GrafanaLabs.Api.Configurations;
+using OpenTelemetry;
+using OpenTelemetry.Exporter;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Resources;
+using OpenTelemetry.Trace;
 
 namespace GrafanaLabs.Api.Telemetry;
 
@@ -20,7 +23,12 @@ public static class TelemetryConfiguration
                 .AddRuntimeInstrumentation()
                 .AddMeter(OtelScopeName.Default)
                 .AddPrometheusExporter()
-            );
+            )
+            .WithTracing(builder => builder
+                .AddAspNetCoreInstrumentation()
+                .AddHttpClientInstrumentation()
+            )
+            .UseOtlpExporter(protocol: OtlpExportProtocol.Grpc, baseUrl: new Uri("http://localhost:6510"));
 
         applicationBuilder.Services
             .AddSingleton<Instrumentation>(_ =>

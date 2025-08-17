@@ -7,7 +7,8 @@ otelcol.receiver.otlp "default" {
   grpc {}
 
   output {
-    logs = [otelcol.exporter.loki.default.input]
+    logs    = [otelcol.exporter.loki.default.input]
+    traces  = [otelcol.exporter.otlp.tempo.input]
   }
 }
 
@@ -22,4 +23,12 @@ loki.write "local" {
   }
 }
 
-
+otelcol.exporter.otlp "tempo" {
+    client {
+        endpoint = "tempo:4317"
+        tls {
+          insecure             = true
+          insecure_skip_verify = true
+        }
+    }
+}

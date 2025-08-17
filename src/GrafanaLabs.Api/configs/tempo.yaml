@@ -6,8 +6,7 @@ distributor:
     otlp:
       protocols:
         grpc:
-        http:
-    zipkin:
+          endpoint: "tempo:4317"
 
 ingester:
   trace_idle_period: 10s
@@ -21,5 +20,14 @@ compactor:
 storage:
   trace:
     backend: local
+    wal:
+      path: /tmp/tempo/wal
     local:
-      path: /tmp/tempo
+      path: /tmp/tempo/blocks
+
+metrics_generator:
+  registry:
+    external_labels:
+      source: tempo
+  storage:
+    path: /tmp/tempo/metrics-generator

@@ -2,7 +2,8 @@ using GrafanaLabs.Api.Telemetry;
 using GrafanaLabs.Api.Telemetry.Meters;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
-using Serilog.Formatting.Json;
+
+// using Serilog.Formatting.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,9 +11,9 @@ builder.Host.UseSerilog((context, configuration) =>
 {
     configuration.ReadFrom.Configuration(context.Configuration);
     configuration.WriteTo.Console();
-    configuration.WriteTo.File(
-        formatter: new JsonFormatter(),
-        path: "/Users/aleksei/logs/dotnet/grafana-labs-api.log");
+    // configuration.WriteTo.File(
+    //     formatter: new JsonFormatter(),
+    //     path: "/Users/aleksei/logs/dotnet/grafana-labs-api.log");
 });
 
 builder.ConfigureTelemetry();

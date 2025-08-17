@@ -70,7 +70,7 @@ services:
       - "4318:4318" # OTLP HTTP
     volumes:
       - ./configs/config.alloy:/etc/alloy/config.alloy
-      - /Users/aleksei/logs/dotnet:/var/log/dotnet
+#      - /Users/aleksei/logs/dotnet:/var/log/dotnet
     command:
       - run
       - --server.http.listen-addr=0.0.0.0:12345
